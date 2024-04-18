@@ -11,6 +11,11 @@ import {
 	Network,
 	ArrowRight,
 	List,
+	Contact2Icon,
+	Flashlight,
+	HandHeart,
+	Book,
+	CastleIcon,
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -28,9 +33,11 @@ function Navbar() {
 		{
 			label: 'Home',
 			link: '/',
+			icon: <Home />,
 		},
 		{
 			label: `Who We Are`,
+			icon: <Contact2Icon />,
 			dropdownMenu: [
 				{
 					label: `About Us`,
@@ -46,6 +53,7 @@ function Navbar() {
 		},
 		{
 			label: `Our Programmes`,
+			icon: <List />,
 			dropdownMenu: [
 				{
 					label: `SheWrites Conference`,
@@ -81,16 +89,40 @@ function Navbar() {
 		},
 		{
 			label: `Our Impact`,
-			link: `/`,
+			icon: <Network />,
+			dropdownMenu: [
+				{
+					label: `Mission`,
+					link: `/`,
+					icon: <CastleIcon />,
+				},
+				{
+					label: `Vision`,
+					link: `/`,
+					icon: <Globe />,
+				},
+			],
 		},
 		{
 			label: `What We Do`,
-			link: `/`,
+			icon: <Flashlight />,
+			dropdownMenu: [
+				{
+					label: `E-bronchure`,
+					link: `/`,
+					icon: <Book />,
+				},
+				{
+					label: `Testimonials`,
+					link: `/`,
+					icon: <HandHeart />,
+				},
+			],
 		},
 	];
 	return (
 		<>
-			<header className="sticky top-0 w-full flex px-3 xl:px-10 lg:justify-between items-center text-foreground shadow-sm shadow-foreground">
+			<header className="sticky top-0 w-full flex px-3 xl:px-10 lg:justify-between items-center text-foreground shadow-sm shadow-foreground bg-white">
 				<div className="lg:hidden">
 					<Button variant={'outline'} onClick={() => open()}>
 						<Menu></Menu>
@@ -130,9 +162,13 @@ function Navbar() {
 							className={`text-white hover:text-primary-foreground lg:text-foreground lg:px-0 px-6 w-full lg:w-auto text-lg font-medium rounded-md lg:text-xl hover:cursor-pointer m-3 xl:m-6`}
 						>
 							{e?.link ? (
-								<Link href={e.link}>{e.label}</Link>
+								<Link href={e.link} className="flex gap-2">
+									<span className="lg:hidden">{e.icon}</span>{' '}
+									{e.label}
+								</Link>
 							) : (
 								<Dropdown
+									icon={e.icon}
 									dropdownMenu={
 										e.dropdownMenu as Array<object>
 									}
@@ -142,7 +178,9 @@ function Navbar() {
 						</div>
 					))}
 				</nav>
-				<Button size={`lg`}>Join Us</Button>
+				<Button className="text-white" size={`lg`}>
+					Join Us
+				</Button>
 			</header>
 		</>
 	);

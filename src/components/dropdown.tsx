@@ -11,13 +11,16 @@ import Link from 'next/link';
 function Dropdown({
 	label,
 	dropdownMenu,
+	icon,
 }: {
 	label: string;
+	icon?: any;
 	dropdownMenu: Array<object>;
 }) {
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger className="focus:outline-0">
+			<DropdownMenuTrigger className="focus:outline-0 flex gap-2">
+				<span className="lg:hidden">{icon}</span>
 				<span className="flex items-center gap-1">
 					{label} <ChevronDown />
 				</span>
