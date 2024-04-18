@@ -1,10 +1,5 @@
 'use client';
-import Navbar from '@/components/navbar';
 
 export default function Home() {
-	return (
-		<main className="">
-			<Navbar />
-		</main>
-	);
+	return <main className=""></main>;
 }

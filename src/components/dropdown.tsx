@@ -28,9 +28,10 @@ function Dropdown({
 						<DropdownMenuItem>
 							<Link
 								href={e?.link}
-								className="hover:text-primary-foreground"
+								className="flex gap-3 lg:gap-4 items-center hover:text-primary-foreground"
 							>
-								{e?.label}
+								{e.icon}
+								<span className="">{e?.label}</span>
 							</Link>
 						</DropdownMenuItem>
 						<DropdownMenuSeparator />

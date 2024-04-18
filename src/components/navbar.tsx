@@ -1,6 +1,17 @@
 import {useState} from 'react';
 import {Button} from '@/components/ui/button';
-import {Menu, XCircle} from 'lucide-react';
+import {
+	Menu,
+	Users,
+	XCircle,
+	Contact,
+	Globe,
+	Store,
+	Home,
+	Network,
+	ArrowRight,
+	List,
+} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Dropdown from '@/components/dropdown';
@@ -19,31 +30,52 @@ function Navbar() {
 			link: '/',
 		},
 		{
+			label: `Who We Are`,
+			dropdownMenu: [
+				{
+					label: `About Us`,
+					link: `/`,
+					icon: <Users />,
+				},
+				{
+					label: `Contact Us`,
+					link: `/`,
+					icon: <Contact />,
+				},
+			],
+		},
+		{
 			label: `Our Programmes`,
 			dropdownMenu: [
 				{
 					label: `SheWrites Conference`,
 					link: `/`,
+					icon: <Globe />,
 				},
 				{
 					label: `Emerge Story labs`,
 					link: `/`,
+					icon: <Store />,
 				},
 				{
 					label: `Residency`,
 					link: `/`,
+					icon: <Home />,
 				},
 				{
 					label: `NextGen`,
 					link: `/`,
+					icon: <ArrowRight />,
 				},
 				{
 					label: `Masterclasses`,
 					link: `/`,
+					icon: <List />,
 				},
 				{
 					label: `SDG8`,
 					link: `/`,
+					icon: <Network />,
 				},
 			],
 		},
@@ -54,15 +86,6 @@ function Navbar() {
 		{
 			label: `What We Do`,
 			link: `/`,
-		},
-
-		{
-			label: `Contact Us`,
-			link: '/',
-		},
-		{
-			label: `About Us`,
-			link: '/',
 		},
 	];
 	return (
@@ -119,9 +142,7 @@ function Navbar() {
 						</div>
 					))}
 				</nav>
-				<Button className="font-semibold" size={`lg`}>
-					Join Us
-				</Button>
+				<Button size={`lg`}>Join Us</Button>
 			</header>
 		</>
 	);
